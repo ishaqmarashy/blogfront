@@ -2,7 +2,7 @@ import './App.css';
 import LoginForm from './compontents/LoginForm';
 import {useEffect,useState} from 'react';
 import Posts from './compontents/Posts';
-const SERVER= "https://murmuring-refuge-74257.herokuapp.com/";
+const SERVER= "https://murmuring-refuge-74257.herokuapp.com";
 
 
 function App() {
