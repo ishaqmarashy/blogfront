@@ -2,7 +2,7 @@ import './App.css';
 import LoginForm from './compontents/LoginForm';
 import {useEffect,useState} from 'react';
 import Posts from './compontents/Posts';
-const SERVER= process.env.REACT_APP_SERVER|| "http://127.0.0.1:5001";
+const SERVER= "https://murmuring-refuge-74257.herokuapp.com/";
 
 
 function App() {
