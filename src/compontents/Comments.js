@@ -21,19 +21,19 @@ function Comments({selectedPost,user,commentsURL}) {
           if (resRes.status===200)
             setComments([result,...comments]);
     }
-    const commentForm=<form className="create-post" onSubmit={handleCreateComment}>
-        <label htmlFor="postid">Post ID</label>
-        <input readOnly type="text" name="postid" id='postid' value={selectedPost._id}/>
-        <label htmlFor="userid">User</label>
-        <input readOnly type="text" name="userid" id='userid' value={selectedPost.userid}/>
-        <label htmlFor="title">Title</label>
-        <input readOnly type="text" name="title" id='title' value={selectedPost.title}/>
-        <label htmlFor="date">Date</label>
-        <input readOnly type="text" name="date" id='title' value={selectedPost.date}/>
-        <label htmlFor="text">Comment</label>
+    const commentForm=<form className="comment-form post" onSubmit={handleCreateComment}>
+        <header className='post-header'> <label htmlFor="postid">Post ID:  &nbsp;
+            <input readOnly type="text" name="postid" id='postid' value={selectedPost._id}/></label>
+            <label htmlFor="userid">User: &nbsp;
+            <input readOnly type="text" name="userid" id='userid' value={selectedPost.userid}/></label>
+            <label htmlFor="title">Title: &nbsp;
+            <input readOnly type="text" name="title" id='title' value={selectedPost.title}/></label>
+            <label htmlFor="date">Date: &nbsp;
+            <input readOnly type="text" name="date" id='title' value={selectedPost.date}/></label>
+        </header>
         <textarea name="text" id='text' />
-        <button type="submit">Add Comment</button>
-    </form>;
+        <button id="comment-button"type="submit">Add Comment</button>
+        </form>;
     const commentsList=comments?comments.map(comment=><div className="comment"key={comment._id}>
         <div>Created By: {comment.userid}</div>
         <div>Comment: {comment.text}</div>
@@ -56,7 +56,9 @@ function Comments({selectedPost,user,commentsURL}) {
     },[selectedPost,user,commentsURL])
     return (<>
     {commentForm}
-    {commentsList}
+    <div className="comment-container">
+        {commentsList}
+    </div>
     </>)
 }
 

@@ -5,6 +5,7 @@ const Posts=({user,postsURL})=>{
   const [posts,setPosts]=useState([]);
   const [selectedPost,setSelectedPost]=useState('');
   const [showPosts,setShowPosts]=useState(true);
+  const [newPost,setNewPost]=useState(true);
   const handleCreatePost=async (e)=>{
     e.preventDefault();
     const {title,text}=e.target;
@@ -27,6 +28,9 @@ const Posts=({user,postsURL})=>{
   const handleCreateComment=(post)=>{
     setSelectedPost(post);
     setShowPosts(false);
+  } 
+   const handleNewPost=()=>{
+    setNewPost(!newPost);
   }
   const handleBack=(e)=>{
     e.preventDefault();
@@ -36,18 +40,17 @@ const Posts=({user,postsURL})=>{
 
   const postsList=posts?posts.map((post,index)=>
   <div onClick={()=>handleCreateComment(post)}   className="post" key={post._id}>
-    <div>Posted By: {post.userid}</div>
-    <div>Date: {post.date}</div>
-    <div>Title: {post.title}</div>
-    <div>Contents: {post.text}</div>
+    <header className='post-header'><div className="author">By: {post.userid}</div>    <h3>Title: {post.title}</h3>     <div>Date: {post.date}</div></header>
+    <div  className='post-body'> {post.text}</div>
   </div>)
     :null;
-  const createPost=<form className="create-post" onSubmit={handleCreatePost}>
-    <label htmlFor="title">Title</label>
-    <input type="text" className="title" name="title"></input>
-    <label htmlFor="text">Text</label>
+  const createPost=<form className="post" onSubmit={handleCreatePost}>
+    <header className='create-post-header'> 
+      <h5 htmlFor="title">Title: </h5>
+      <input type="text" className="title" name="title"></input>
+    </header>
     <textarea className="text" name="text"></textarea>
-    <button type="submit">Create Post</button>
+    <button id="post-button" type="submit">Create Post</button>
   </form>;
   useEffect(()=>{
     const getPost=async ()=>{
@@ -73,8 +76,12 @@ const Posts=({user,postsURL})=>{
   },[user,postsURL]);
   return (
         <>
-        {showPosts?<>
-          {createPost}
+       {showPosts?<>
+          <div className="posts-wrapper-header">
+            <h1> {newPost? <>Create a post</>:<>Latest Post</>} </h1>
+            <button onClick={handleNewPost}className="new-post">{newPost? <>Back</>:<>New Post</>}</button>
+          </div>
+          {newPost&&createPost}
           {postsList}
           </>
         :<>
