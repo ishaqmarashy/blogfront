@@ -78,14 +78,14 @@ const Posts=({user,postsURL})=>{
         <>
        {showPosts?<>
           <div className="posts-wrapper-header">
-            <h1> {newPost? <>Create a post</>:<>Latest Post</>} </h1>
+            <h1 className="post-title"> {newPost? <>Create a post</>:<>Latest Post</>} </h1>
             <button onClick={handleNewPost}className="new-post">{newPost? <>Back</>:<>New Post</>}</button>
           </div>
           {newPost&&createPost}
           {postsList}
           </>
         :<>
-          <button className='back' onClick={handleBack}>Back</button>
+          <button className='new-post' onClick={handleBack}>Back</button>
           <Comments selectedPost={selectedPost} user={user} commentsURL={`${postsURL}`}/>
           </>}
         </>    
