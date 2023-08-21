@@ -11,21 +11,32 @@
   --post-bg-color:rgb(61, 73, 103);
 }
 textarea{
-  width:100%;
+  width:99.66%;
   height:80%;
   resize: none;
   border:0;
   border-bottom: 0.3em solid var(--post-border-color);
 }
 .nav{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  background-color:var(--nav-color);
+  border-bottom: solid bisque 0.15em;
+}
+.nav-sign{
   position:relative;
   display:flex;
-  justify-content:space-between;
-  border-bottom: 0.2em solid rgb(67, 0, 0);
+  flex-direction: row;
   padding: 0.5em;
 }
-.sign-out,.nav{
+.nav-out{
+  background-color:var(--nav-color);
+}
+.sign-out,.nav-sign{
   border:0;
+  margin:auto;
   background-color:var(--nav-color);
 }
 
@@ -33,6 +44,7 @@ textarea{
   display:flex;
   flex-wrap: wrap;
   justify-content:center;
+
 }
 
 .post,.comment{
@@ -46,8 +58,8 @@ textarea{
 }
 .post-header{
   display:flex;
+  width: auto;
   flex-direction:column;
-  padding: 0 ;
   padding-bottom: 0.5em;
   justify-content:space-around;
 }
@@ -125,6 +137,7 @@ textarea{
   border-width: 0cm;
   background-color: var(--post-border-color);
   border-radius: 10px 0px 0px 10px;
+  min-width: 5rem;
 
 }
 .comment-container {
@@ -147,6 +160,8 @@ textarea{
   display:flex;
   width:100%;
   justify-content:space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .posts-wrapper-header button{
 
@@ -167,23 +182,40 @@ textarea{
   background-color:rgb(70, 9, 9);
 }
 .sign-in{
+  padding-left: 1em;
   display: flex;
+  background-color: var(--nav-color);
   flex-direction: row;
+  justify-content: space-around;
 }
 .sign-in>*{
   padding:0;
+  padding-left: 1em;
   border : 0;
   background-color:var(--nav-color);
+  border-radius: 10px;
+}
+.sign-out{
+  align-self: flex-end;
+  padding-right: 2em;
 }
 .error{
   padding-left: 1em;
 }
 .post-title{
-  margin: auto;
+  margin-left: 60rem;
 }
 .title{
   border:var(--post-border-color) solid 1px;
 }
 .post-header>*>*{
   border-width:0px;
+}
+.logo{
+  max-width: 25px;
+  padding-left: 2em;
+  background-color: var(--nav-color);
+}
+#password, #confirm_password,#username{
+  background-color: bisque;
 }

@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import md5 from "md5"; 
-
 const LoginForm=({setUser,SignInURL,SignUpURL,setUserName})=>{
   const [signToggle,setSignToggle]=useState(true);
   const [resultMessage,setResultMessage]=useState('');
@@ -98,12 +97,17 @@ const LoginForm=({setUser,SignInURL,SignUpURL,setUserName})=>{
   </form>   
     return (
     <div className="nav">
+      <img className='logo' src={process.env.PUBLIC_URL + '/android-chrome-512x512.png'}  alt="logo"/>      
+      <div className='nav-sign'>
       {signToggle?
         signInForm
         :
         SignUpForm
       }
-      <button className='sign-out' onClick={handleToggle}>{signToggle?<>Sign Up</>:<>Sign In</>}</button>
+      </div>
+      <div className='nav-out'>
+        <button className='sign-out' onClick={handleToggle}>{signToggle?<>Sign Up</>:<>Sign In</>}</button>
+      </div>
     </div>)
 }
 

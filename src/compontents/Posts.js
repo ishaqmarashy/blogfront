@@ -46,10 +46,14 @@ const Posts=({user,postsURL})=>{
     :null;
   const createPost=<form className="post" onSubmit={handleCreatePost}>
     <header className='create-post-header'> 
-      <h5 htmlFor="title">Title: </h5>
-      <input type="text" className="title" name="title"></input>
+      <div>
+      <h3 htmlFor="title">Title: 
+      <input type="text" className="title" placeholder="Title text here"  name="title"></input>
+      </h3>
+
+      </div>
     </header>
-    <textarea className="text" name="text"></textarea>
+    <textarea className='post-body'  placeholder="Describe text here" name="text"></textarea>
     <button id="post-button" type="submit">Create Post</button>
   </form>;
   useEffect(()=>{
@@ -85,8 +89,7 @@ const Posts=({user,postsURL})=>{
           {postsList}
           </>
         :<>
-          <button className='new-post' onClick={handleBack}>Back</button>
-          <Comments selectedPost={selectedPost} user={user} commentsURL={`${postsURL}`}/>
+          <Comments selectedPost={selectedPost} handleBack={handleBack} user={user} commentsURL={`${postsURL}`}/>
           </>}
         </>    
 )}

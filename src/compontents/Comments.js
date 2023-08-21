@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 
-function Comments({selectedPost,user,commentsURL}) {
+function Comments({selectedPost,user,commentsURL,handleBack}) {
     const [comments,setComments]=useState([]);
     const handleCreateComment=async(e)=>{
         e.preventDefault();
@@ -31,13 +31,18 @@ function Comments({selectedPost,user,commentsURL}) {
             <label htmlFor="date">Date: &nbsp;
             <input readOnly type="text" name="date" id='title' value={selectedPost.date}/></label>
         </header>
-        <textarea name="text" id='text' />
+        <textarea className='post-body' placeholder="Describe text here" name="text" id='text' />
         <button id="comment-button"type="submit">Add Comment</button>
         </form>;
-    const commentsList=comments?comments.map(comment=><div className="comment"key={comment._id}>
-        <div>Created By: {comment.userid}</div>
-        <div>Comment: {comment.text}</div>
-        <div>Date: {comment.date}</div>
+    const commentsList=comments?comments.map(comment=><div className="post"key={comment._id}>
+        <header className='post-header'>
+            
+            <h3>Created By: {comment.userid}</h3>
+            <div>Date: {comment.date}</div>
+        </header>
+        <div className='post-body'>
+        {comment.text}
+        </div>
     </div>)
     :null;
     useEffect(()=>{
@@ -55,10 +60,12 @@ function Comments({selectedPost,user,commentsURL}) {
         getComments()
     },[selectedPost,user,commentsURL])
     return (<>
+    <div className="posts-wrapper-header">
+            <h1 className="post-title"> { <>Post a Comment</>} </h1>
+            <button className='new-post' onClick={handleBack}>Back</button>
+          </div>
     {commentForm}
-    <div className="comment-container">
-        {commentsList}
-    </div>
+    {commentsList}
     </>)
 }
 
