@@ -16,7 +16,7 @@ This is an interactive blogging website built using the MERN stack (MongoDB, Exp
 2. Clone the repository: `git clone https://github.com/ishaqmarashy/blogfront.git`
 3. Navigate to the project directory: `cd ./blogfront`
 4. Install server dependencies: `npm install`
-5. Create a `.env` file in the root directory with the API's address where it is being hosted. It should look something like this: `REACT_APP_SERVER=linktowebaddress`. If it's run locally, use port 3001.
+5. Create a `.env` file in the root directory with the API's address where it is being hosted. It should look something like this: `REACT_APP_SERVER=link_to_web_address`. If it's run locally, use port 3001.
 6. Run the server: `npm start`
 
 The website should now be accessible at http://localhost:3000. If the website is hosted locally, it will be available at http://localhost:3001.
