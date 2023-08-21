@@ -2,6 +2,7 @@
 ![Website Screenshot](https://github.com/ishaqmarashy/blogfront/assets/34040118/208312d8-4c7b-4e5f-9ba8-058ab12a1062)
 
 This is an interactive blogging website built using the MERN stack (MongoDB, Express, React, Node.js) along with Passport for user authentication. The project was initiated in November 2021 and focuses on providing users with a platform to engage in discussions through blog posts and comments.
+The current deployment while isnt so pretty can be access [here](https://ishaqmarashy.github.io/blogfront/). 
 
 ## Features
 - **User Authentication:** Utilizing Passport, the website offers secure user registration and login functionalities.
