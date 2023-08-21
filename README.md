@@ -20,4 +20,5 @@ The current deployment while isnt so pretty can be access [here](https://ishaqma
 5. Create an `.env` file in the root directory with the API's address where it is being hosted. It should look something like this: `REACT_APP_SERVER=link_to_web_address`. If it's run locally, it will use port 3001.
 6. Run the server: `npm start`
 
-The website should now be accessible at http://localhost:3000. If the website is hosted locally, it will be available at http://localhost:3001.
+The website should now be accessible at http://localhost:3000.
+If the website is hosted locally, it will be available at http://localhost:3001.
